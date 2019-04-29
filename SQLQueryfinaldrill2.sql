@@ -53,10 +53,10 @@ insert into Books
 values
 (42, 'Hamlet ',	'Tuttle Publishing'),
 (43,	'War and Peace','TCK Publishing'),
-(44,	'Tho Outsider',	'Harper colins'),
+(44,	'The Outsider',	'Harper Collins'),
 (45, 'lliad','Tuttle Publishing'),
-(46,	'Beloved',	'Harper colins'),
-(47,	'The Lost Tribe	','Arcade Publishing'),
+(46, 'Beloved',	'Harper Collins'),
+(47, 'The Lost Tribe','Arcade Publishing'),
 (50,'Harry Potter',	'John Blake Publishing'),
 (51,	'Alices Adventures in Wonderland',	'City Lights Publisher'),
 (52,	'The Adventures of Huckleberry Finn	', 'Bloomsbary'),
@@ -99,7 +99,8 @@ values
 (43,	'George Orwell')
 ;
 
-
+use myBooks
+go
 create table Borrower
 (
 cardNo int primary key not null identity(1,1),
@@ -123,8 +124,8 @@ values
 ;
 
 
-
-select *from Book_Loans;
+use myBooks
+go
 create table Book_Loans
 (
 Book_Id int  not null  CONSTRAINT fk_Book_Loans_Book_id FOREIGN KEY REFERENCES Books(Book_Id) ON UPDATE CASCADE ON DELETE CASCADE,
@@ -135,8 +136,9 @@ DateDue date
 );
 
 select * from Book_Loans;
-
-insert into Bokk_Loans
+use myBooks
+go
+insert into Book_Loans
 values
 (47, 2,	2,	'2019-01-10','2019-02-10'),
 (42, 2,	2,	'2019-02-12','2019-05-25'),
